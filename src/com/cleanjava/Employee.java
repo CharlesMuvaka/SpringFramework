@@ -6,6 +6,7 @@ import org.springframework.beans.factory.InitializingBean;
 public class Employee implements InitializingBean, DisposableBean {
 	private int age, salary;
 	private String name, department;
+	private Address address;
 	
 	public Employee() {
 		
@@ -17,6 +18,15 @@ public class Employee implements InitializingBean, DisposableBean {
 		this.salary = salary;
 		this.name = name;
 		this.department = department;
+	}
+	
+
+	public Address getAddress() {
+		return address;
+	}
+
+	public void setAddress(Address address) {
+		this.address = address;
 	}
 
 	public int getAge() {
