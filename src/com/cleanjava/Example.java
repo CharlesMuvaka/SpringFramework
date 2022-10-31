@@ -3,6 +3,7 @@ package com.cleanjava;
 import org.springframework.beans.factory.BeanFactory;
 import org.springframework.beans.factory.xml.XmlBeanFactory;
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.core.io.ClassPathResource;
 
@@ -27,7 +28,7 @@ public class Example {
 		// 2. ClassPathXmlApplicationContext - Reads metadata from an xml configuration file whose name only should be indicated as arguments fo the class.
 		// 3. WebXmlApplicationContext - File loads all beans in a web Application definition.
 		
-		ApplicationContext context = new ClassPathXmlApplicationContext("Beans.xml");
+		AbstractApplicationContext context = new ClassPathXmlApplicationContext("Beans.xml");
 		Employee emp1 = (Employee) context.getBean("employee");
 		System.out.println(emp1.getName());
 		
@@ -35,6 +36,8 @@ public class Example {
 		company.setName("Muvkin");
 		company.setLocation("Wikivuvwa");
 		System.out.println(company.getName());
+		
+		context.registerShutdownHook();
 		
 		
 	}
