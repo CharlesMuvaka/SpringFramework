@@ -36,5 +36,8 @@ public class Company {
 		System.out.println("A company instance has been created, Please do something");
 	}
 	
+	public void destroy() {
+		System.out.println("This company bean has be disposed, No data concerning it will be available");
+	}
 
 }
