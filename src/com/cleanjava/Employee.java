@@ -1,6 +1,8 @@
 package com.cleanjava;
 
-public class Employee {
+import org.springframework.beans.factory.InitializingBean;
+
+public class Employee implements InitializingBean {
 	private int age, salary;
 	private String name, department;
 	
@@ -46,6 +48,12 @@ public class Employee {
 
 	public void setDepartment(String department) {
 		this.department = department;
+	}
+
+	@Override
+	public void afterPropertiesSet() throws Exception {
+		// TODO Auto-generated method stub
+		System.out.println("The bean has been initialised, therefore do something");
 	}
 
 
