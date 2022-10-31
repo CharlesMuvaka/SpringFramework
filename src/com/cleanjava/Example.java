@@ -12,7 +12,7 @@ public class Example {
 		// TODO Auto-generated method stub
 		
 		// Spring IoC containers
-		// 1. BeanFactory - provides basic support for Di and used for small applications
+		// 1. BeanFactory - provides basic support for DI and used for small applications
 		// 2. ApplicationConext
 		
 		//BeanFactory implementation
@@ -22,9 +22,19 @@ public class Example {
 		Employee emp = (Employee) factory.getBean("employee");
 		System.out.println(emp.getAge());
 		
+		//ApplicationContext Interface has 3 implementations
+		// 1. FileSystemXmlApplicationContext - Reads metadata from an xml configuration file that full path should be indicated as arguments.
+		// 2. ClassPathXmlApplicationContext - Reads metadata from an xml configuration file whose name only should be indicated as arguments fo the class.
+		// 3. WebXmlApplicationContext - File loads all beans in a web Application definition.
+		
 		ApplicationContext context = new ClassPathXmlApplicationContext("Beans.xml");
 		Employee emp1 = (Employee) context.getBean("employee");
 		System.out.println(emp1.getName());
+		
+		Company company = (Company) context.getBean("company");
+		company.setName("Muvkin");
+		company.setLocation("Wikivuvwa");
+		System.out.println(company.getName());
 		
 		
 	}
