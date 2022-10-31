@@ -13,10 +13,36 @@
 		<property name = "department" value = "InformationSystem"/>
 		<property name = "name" value = "Tabitha"/>
 		<property name = "salary" value = "100000"/>
+		<property name="address" ref = "address"/>
 		
 	</bean>
 	
 	<bean id = "company" class = "com.cleanjava.Company" init-method = "init" destroy-method = "destroy">
+		<constructor-arg ref = "address"/>
+		<property name="employees">
+			<list>
+				<ref bean= "employee"/>
+			</list>
+		</property>
+		<property name="departments">
+			<set>
+				<value>Credit</value>
+				<value>payments</value>
+				<value>Operations/</value>
+			</set>
+		</property>
+		<property name = "employeeDepartments">
+			<map>
+				<entry key = "Credit" value-ref = "employee"/>
+			</map>
+		</property>
+	</bean>
+	
+	<bean id = "address" class = "com.cleanjava.Address">
+		<property name = "zip" value = "00100"/>
+		<property name="street" value = "Embakasi-East"/>
+		<property name = "location" value = "Nairobi"/>
+		
 	</bean>
 
 </beans>
