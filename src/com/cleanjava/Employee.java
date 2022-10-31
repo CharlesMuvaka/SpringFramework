@@ -1,8 +1,9 @@
 package com.cleanjava;
 
+import org.springframework.beans.factory.DisposableBean;
 import org.springframework.beans.factory.InitializingBean;
 
-public class Employee implements InitializingBean {
+public class Employee implements InitializingBean, DisposableBean {
 	private int age, salary;
 	private String name, department;
 	
@@ -53,7 +54,14 @@ public class Employee implements InitializingBean {
 	@Override
 	public void afterPropertiesSet() throws Exception {
 		// TODO Auto-generated method stub
-		System.out.println("The bean has been initialised, therefore do something");
+		System.out.println(this.name + " bean has been initialised, therefore do something");
+	}
+
+	@Override
+	public void destroy() throws Exception {
+		// TODO Auto-generated method stub
+		System.out.println(this.name + " bean has been disposed, no data concerning it is available");
+		
 	}
 
 
