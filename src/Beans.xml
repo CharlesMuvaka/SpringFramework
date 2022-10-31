@@ -16,7 +16,7 @@
 		
 	</bean>
 	
-	<bean id = "company" class = "com.cleanjava.Company" init-method = "init">
+	<bean id = "company" class = "com.cleanjava.Company" init-method = "init" destroy-method = "destroy">
 	</bean>
 
 </beans>
